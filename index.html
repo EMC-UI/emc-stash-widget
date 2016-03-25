@@ -1,0 +1,22 @@
+<html>
+<head>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+
+
+</head>
+<body ng-app="app">
+    <div ng-controller="appController">
+        {{test}}
+        <div ng-repeat="project in topProjects">
+            {{project.name}} has
+            {{project.commits}} commits with
+            {{projects.contrib}} contributors
+        </div>
+
+
+    </div>
+
+</body>
+</html>
