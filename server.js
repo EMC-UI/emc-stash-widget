@@ -1,16 +1,21 @@
 var express = require('express');
 var app = express();
+var pmongo = require('promised-mongo');
+
+var getDbConnection = function () {
+    return pmongo('mongodb://localhost:27017/tally');
+};
+
+var db = getDbConnection();
+
+var getRepoStats = function() {
+    return db.collection('projects').find();
+};
 
 app.get('/stats/repos', function (req, res) {
-    res.json(
-        [
-            {name: "Project1", commits: 524, contrib: 2},
-            {name: "project2", commits: 324, contrib: 5},
-            {name: "Project3", commits: 142, contrib: 1},
-            {name: "Project4", commits: 36, contrib: 10},
-            {name: "Project5", commits: 12, contrib: 2},
-        ]
-    )
+    getRepoStats().then(function(result) {
+        res.json(result);
+    });
 });
 
 app.listen(3000, function () {
