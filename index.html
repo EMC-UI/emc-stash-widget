@@ -8,7 +8,14 @@
 </head>
 <body ng-app="app">
     <div ng-controller="appController">
-{{test}}
+        {{test}}
+        <div ng-repeat="project in topProjects">
+            {{project.name}} has
+            {{project.commits}} commits with
+            {{projects.contrib}} contributors
+        </div>
+
+
     </div>
 
 </body>
