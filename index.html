@@ -8,13 +8,15 @@
 </head>
 <body ng-app="app">
     <div ng-controller="appController">
-        {{test}}
+        <h1>Projects with Most Commits<aside>Last 7 Days</aside></h1>
         <div ng-repeat="project in topProjects track by $index">
             <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
             </span>
             {{project.name}} has
             {{project.commits}} commits with
-            {{projects.contrib}} contributors
+            {{project.contrib}} contributors
+
+            percent is: {{project.percent}}
         </div>
 
 
