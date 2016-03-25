@@ -1,2 +1,13 @@
 body {
+  font: 16px;
   background: white; }
+
+.proj-pic {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 5em;
+  height: 5em;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center middle;
+  background-size: cover; }

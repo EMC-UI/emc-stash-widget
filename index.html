@@ -9,7 +9,9 @@
 <body ng-app="app">
     <div ng-controller="appController">
         {{test}}
-        <div ng-repeat="project in topProjects">
+        <div ng-repeat="project in topProjects track by $index">
+            <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
+            </span>
             {{project.name}} has
             {{project.commits}} commits with
             {{projects.contrib}} contributors
