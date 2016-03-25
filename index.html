@@ -7,44 +7,47 @@
 
 </head>
 <body ng-app="app">
-    {{view}}
-    <div ng-controller="projController" ng-if="view != 2">
-        WTF 1
-            <h1>Projects with Most Commits<aside>Last 7 Days</aside></h1>
-            <div ng-repeat="project in topProjects track by $index" class="entry">
-                <div class="top">
-                        <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
-                        </span>
-                        <h3>
-                            <em>{{project.name}}</em> <span>has</span>
-                            <em>{{project.commits}}</em> <span>commits with</span>
-                            <em>{{project.contrib}}</em> <span>contributors</span>
-                        </h3>
+    <div id="left">
+        <span class="circle" ng-class="{active: view === 1}"></span>
+        <span class="circle" ng-class="{active: view === 2}"></span>
+    </div>
+    <div id="right">
+        <div ng-controller="projController" ng-if="view != 2">
+                <h1>Projects with Most Commits <em class="gray">Last 7 Days</em></h1>
+                <div ng-repeat="project in topProjects track by $index" class="entry">
+                    <div class="top">
+                            <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
+                            </span>
+                            <h3>
+                                <em>{{project.name}}</em> <span>has</span>
+                                <em>{{project.commits}}</em> <span>commits with</span>
+                                <em>{{project.contrib}}</em> <span>contributors</span>
+                            </h3>
 
-                    <div class="container">
-                        <div class="bar" style="width: {{project.percent}}%"></div>
+                        <div class="container">
+                            <div class="bar" style="width: {{project.percent}}%"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-    </div>
-    <div ng-controller="contribController" ng-if="view === 2">
-        <h1>Top Contributors<aside>Last 7 Days</aside></h1>
-        <div ng-repeat="contrib in topContributors track by $index" class="entry">
-            <div class="top">
-                <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
-                </span>
-                <h3>
-                    <em>{{contrib.name}}</em> <span>has</span>
-                    <em>{{contrib.commits}}</em> <span>commits with</span>
-                    <em>{{contrib.contrib}}</em> <span>contributors</span>
-                </h3>
+        </div>
+        <div ng-controller="contribController" ng-if="view === 2">
+            <h1>Top Contributors <span class="gray">Last 7 Days</span></h1>
+            <div ng-repeat="contrib in topContributors track by $index" class="entry">
+                <div class="top">
+                    <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
+                    </span>
+                    <h3>
+                        <em>{{contrib.name}}</em> <span>has</span>
+                        <em>{{contrib.commits}}</em> <span>commits with</span>
+                        <em>{{contrib.contrib}}</em> <span>contributors</span>
+                    </h3>
 
-                <div class="container">
-                    <div class="bar" style="width: {{project.percent}}%"></div>
+                    <div class="container">
+                        <div class="bar" style="width: {{contrib.percent}}%"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
