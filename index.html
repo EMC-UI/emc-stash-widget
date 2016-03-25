@@ -7,20 +7,41 @@
 
 </head>
 <body ng-app="app">
-    <div ng-controller="appController" id="container">
-        <h1>Projects with Most Commits<aside>Last 7 Days</aside></h1>
-        <div ng-repeat="project in topProjects track by $index" class="entry">
+    {{view}}
+    <div ng-controller="projController" ng-if="view != 2">
+        WTF 1
+            <h1>Projects with Most Commits<aside>Last 7 Days</aside></h1>
+            <div ng-repeat="project in topProjects track by $index" class="entry">
+                <div class="top">
+                        <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
+                        </span>
+                        <h3>
+                            <em>{{project.name}}</em> <span>has</span>
+                            <em>{{project.commits}}</em> <span>commits with</span>
+                            <em>{{project.contrib}}</em> <span>contributors</span>
+                        </h3>
+
+                    <div class="container">
+                        <div class="bar" style="width: {{project.percent}}%"></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div ng-controller="contribController" ng-if="view === 2">
+        <h1>Top Contributors<aside>Last 7 Days</aside></h1>
+        <div ng-repeat="contrib in topContributors track by $index" class="entry">
             <div class="top">
                 <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)">
                 </span>
                 <h3>
-                    <em>{{project.name}}</em> <span>has</span>
-                    <em>{{project.commits}}</em> <span>commits with</span>
-                    <em>{{project.contrib}}</em> <span>contributors</span>
+                    <em>{{contrib.name}}</em> <span>has</span>
+                    <em>{{contrib.commits}}</em> <span>commits with</span>
+                    <em>{{contrib.contrib}}</em> <span>contributors</span>
                 </h3>
 
-            <div class="container">
-                <div class="bar" style="width: {{project.percent}}%"></div>
+                <div class="container">
+                    <div class="bar" style="width: {{project.percent}}%"></div>
+                </div>
             </div>
         </div>
     </div>
