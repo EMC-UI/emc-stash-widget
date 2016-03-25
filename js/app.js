@@ -20,6 +20,7 @@
         // });
 
 
+        // Grab percentage of contribution
         var percentage = [];
         $scope.topProjects.forEach (function(proj){
             var percent = Math.round((proj.commits / $scope.topProjects[0].commits) * 100);

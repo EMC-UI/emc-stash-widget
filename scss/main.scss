@@ -1,13 +1,43 @@
-body { font: 16px; background: white;}
+
+$border-radius: 1em;
+body {
+    font-family: helvetica,arial, san-serif;
+    font: 16px;
+    background: #e9e9e9;}
 
 .proj-pic {
-    border-radius: 50%;
+    border-radius: $border-radius;
     overflow: hidden;
-    width: 5em;
-    height: 5em;
+    width: 3.5em;
+    height: 3.5em;
     display: block;
     background-repeat: no-repeat;
     background-position: center middle;
     background-size: cover;
-    img { };
+    float: left;
+
 }
+
+.entry { margin: .5vh 0;  height: 13vh; padding: 1.5vh;}
+.top { overflow: hidden;}
+
+h3 {
+    span { opacity: .6; font-weight: 100; }
+    em {
+        font-style: normal;
+        opacity: 1;
+        }
+    }
+
+.container {
+    width: 100%;
+    background: #D8D8D8;
+    border-radius: $border-radius / 2;
+ }
+.bar {
+    background: green;
+    height: 3vh;
+    min-height: 18px;
+    display: block;
+    border-radius: $border-radius / 2;
+    }
