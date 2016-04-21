@@ -1,15 +1,18 @@
 var express = require('express');
 var tally = require('tally');
 var app = express();
+var url = require('url');
 
 app.get('/stats/userStats', function (req, res) {
-    tally.userStats(7).then(function(result) {
+    var urlParts = url.parse(req.url, true);
+    tally.userStats(urlParts.query.prevDays).then(function(result) {
         res.json(result);
     });
 });
 
 app.get('/stats/projectStats', function (req, res) {
-    tally.projectStats(7).then(function(result) {
+    var urlParts = url.parse(req.url, true);
+    tally.projectStats(urlParts.query.prevDays).then(function(result) {
         res.json(result);
     });
 });

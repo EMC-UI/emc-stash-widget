@@ -10,6 +10,9 @@ body {
   background: #e9e9e9;
   display: flex; }
 
+.error {
+  color: red;
+}
 .circle.active {
   background: #2C95DD; }
 
