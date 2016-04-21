@@ -17,6 +17,13 @@ app.get('/stats/projectStats', function (req, res) {
     });
 });
 
+app.get('/stats/repoStats', function (req, res) {
+    var urlParts = url.parse(req.url, true);
+    tally.repoStats(urlParts.query.prevDays).then(function(result) {
+        res.json(result);
+    });
+});
+
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
