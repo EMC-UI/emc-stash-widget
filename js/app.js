@@ -1,69 +1,92 @@
-(function($angular, _) {
-	'use strict';
+'use strict';
 
-	$angular.module('app', [])
+angular.module('app', ['ngMessages'])
     .run(['$rootScope', "$interval", function($rootScope, $interval) {
-        $rootScope.view = 1;
+        $rootScope.view = 0;
+
+        $rootScope.views = [
+            {id: 0, name: 'User'},
+            {id: 1, name: 'Project'},
+            {id: 2, name: 'Repo'}
+        ];
+
         $interval(function() {
-             $rootScope.view = ($rootScope.view === 1 ? 2 : 1);
-             console.log($rootScope.view);
-        }, 5000)
-    }])
-    .controller('projController', ['$scope', '$http', function($scope,$http) {
-
-        // for Compass/SCSS stuff
-        $scope.topProjects = [
-            {name: "Project1", commits: 524, contrib: 2},
-            {name: "project2", commits: 324, contrib: 5},
-            {name: "Project3", commits: 142, contrib: 1},
-            {name: "Project4", commits: 36, contrib: 10},
-            {name: "Project5", commits: 12, contrib: 2},
-        ];
-
-
-        // Expressjs Magic
-        // $http.get("/stats/repos").then(function(response){
-        //     $scope.topProjects = response.data;
-        // });
-
-
-        // Grab percentage of contribution
-        $scope.topProjects.forEach (function(proj){
-            var percent = Math.round((proj.commits / $scope.topProjects[0].commits) * 100);
-            proj.percent = percent;
+            switch ($rootScope.view) {
+                case 0: $rootScope.view = 1; break;
+                case 1: $rootScope.view = 2; break;
+                case 2: $rootScope.view = 0; break;
+                default: $rootScope.view = 0;
             }
-
-        )
-
-
+        }, 5000);
     }])
 
-    .controller('contribController', ['$scope', '$http', function($scope,$http) {
+    .controller('ProjectStatsCtrl', ['$scope', '$http', function ($scope, $http) {
+        $scope.prevDays = 7;
+        $scope.loadCounts = function () {
+            $scope.resource = '/stats/projectStats?prevDays=' + $scope.prevDays;
+            $http.get($scope.resource).then(function (response) {
+                $scope.projectStats = response.data.stats;
 
-        // for Compass/SCSS stuff
-        $scope.topContributors = [
-            {name: "Peter Parker", commits: 35, proj: 2},
-            {name: "Felica Hardy", commits: 23, proj: 5},
-            {name: "Mary Jane Watson", commits: 12, proj: 1},
-            {name: "J. Jonah Jameson", commits: 11, proj: 10},
-            {name: "Phil Urich", commits: 8, proj: 2},
-        ];
+                var totalCommits = 0;
+                _.each($scope.projectStats, function (project) {
+                    totalCommits += project.count || 0;
+                });
+                _.each($scope.projectStats, function (project, total) {
+                    project.commitPercent = Math.round((project.count / totalCommits) * 100);
+                });
+            });
+        };
 
+        $scope.init = function () {
+            $scope.loadCounts();
+        };
+        $scope.init();
+    }])
 
-        // Expressjs Magic
-        // $http.get("/stats/repos").then(function(response){
-        //     $scope.topProjects = response.data;
-        // });
+    .controller('RepoStatsCtrl', ['$scope', '$http', function ($scope, $http) {
+        $scope.prevDays = 7;
+        $scope.repoStats = [];
+        $scope.loadCounts = function () {
+            $scope.resource = '/stats/repoStats?prevDays=' + $scope.prevDays;
+            $http.get($scope.resource).then(function (response) {
+                $scope.repoStats = response.data.stats;
 
+                var totalCommits = 0;
+                _.each($scope.repoStats, function (repo) {
+                    totalCommits += repo.count || 0;
+                });
+                _.each($scope.repoStats, function (repo, total) {
+                    repo.commitPercent = Math.round((repo.count / totalCommits) * 100);
+                });
+            });
+        };
 
-        // Grab percentage of contribution
-        $scope.topContributors.forEach (function(contrib){
-            var percent = Math.round((contrib.commits / $scope.topContributors[0].commits) * 100);
-            contrib.percent = percent;
-            }
+        $scope.init = function () {
+            $scope.loadCounts();
+        };
+        $scope.init();
+    }])
 
-        )
+    .controller('UserStatsCtrl', ['$scope', '$http', function ($scope, $http) {
+        $scope.prevDays = 7;
+        $scope.loadCounts = function() {
+            $scope.resource = '/stats/userStats?prevDays=' + $scope.prevDays;
+            $http.get($scope.resource).then( function(response) {
+                $scope.userStats = response.data.stats;
 
-    }]);
+                var totalCommits = 0;
+                _.each($scope.userStats, function (user, total) {
+                    totalCommits += user.count || 0;
+                });
+                _.each($scope.userStats, function (user, total) {
+                    user.commitPercent = Math.round((user.count / totalCommits) * 100);
+                });
+            });
+        };
 
-})(window.angular, window._);
+        $scope.init = function() {
+            $scope.loadCounts();
+        };
+        $scope.init();
+    }
+    ]);

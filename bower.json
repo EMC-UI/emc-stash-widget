@@ -1,0 +1,17 @@
+{
+  "name": "emc.stash.widget",
+  "version": "0.0.1",
+  "main": [],
+  "ignore": [
+    "js/",
+    ".bowerrc",
+    "index.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": "~1.5.5",
+    "angular-messages": "~1.5.5",
+    "underscore": ">=1.8.3"
+  },
+  "devDependencies": {}
+}

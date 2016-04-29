@@ -12,6 +12,6 @@
     },
     "dependencies": {
         "express": "~4.13.4",
-        "promised-mongo": "^1.2.0"
+        "tally": "git+https://github.com/EMC-UI/tally"
     }
 }
