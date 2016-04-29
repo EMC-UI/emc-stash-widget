@@ -25,10 +25,13 @@ app.get('/stats/repoStats', function (req, res) {
     res.json({});
 });
 
+app.get('/create', function(req, res) {
+    tally.createData(30);
+    res.send('building');
+});
+
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
-
-tally.createData(30);
 
 app.use(express.static('.'));
