@@ -10,20 +10,59 @@ angular.module('app', ['ngMessages'])
             {id: 2, name: 'Repo'}
         ];
 
-        $interval(function() {
-            switch ($rootScope.view) {
-                case 0: $rootScope.view = 1; break;
-                case 1: $rootScope.view = 2; break;
-                case 2: $rootScope.view = 0; break;
-                default: $rootScope.view = 0;
-            }
-        }, 5000);
     }])
 
-    .controller('ProjectStatsCtrl', ['$scope', '$http', function ($scope, $http) {
-        $scope.prevDays = 7;
+    .controller('mainCtrl', ['$scope', '$http', '$rootScope', '$interval', function ($scope, $http, $rootScope, $interval) {
+
+        $scope.setView = function(e) {
+            $rootScope.view = e;
+            }
+
+        $scope.widgetModeActive = 1;
+        var startPresentation;
+        $scope.widgetMode = [
+                    {id: 0, name: "Presentation"},
+                    {id: 1, name: "Click"}
+                ];
+
+        $scope.prevDays = {
+            availableOptions: [
+                {days: 1, name: "Last 24 Hours"},
+                {days: 7, name: "Last 7 Days"},
+                {days: 14, name: "Last 14 Days"},
+                {days: 30, name: "Last 30 Days"}
+            ],
+            selectedOption: {days: 7, name: "Last 7 Days"} //This sets the default value of the select in the ui
+        };
+
+        var startPresentation;
+        $scope.$watch("widgetModeActive", function(newValue, oldValue){
+
+            if($scope.widgetModeActive === 0) {
+                startPresentation = $interval(function() {
+                        switch ($rootScope.view) {
+                            case 0: $rootScope.view = 1; break;
+                            case 1: $rootScope.view = 0; break;
+                            // case 2: $rootScope.view = 0; break;
+                            default: $rootScope.view = 0;
+                        }
+                    }, 5000);
+
+
+            } else if ($scope.widgetModeActive === 1) {
+                $interval.cancel(startPresentation);
+                console.log("stopped!");
+
+            }
+        });
+
+     }])
+    .controller('ProjectStatsCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+
+
         $scope.loadCounts = function () {
-            $scope.resource = '/stats/projectStats?prevDays=' + $scope.prevDays;
+
+            $scope.resource = '/stats/projectStats?prevDays=' + $scope.prevDays.selectedOption.days;
             $http.get($scope.resource).then(function (response) {
                 $scope.projectStats = response.data.stats;
 
@@ -41,13 +80,17 @@ angular.module('app', ['ngMessages'])
             $scope.loadCounts();
         };
         $scope.init();
+
+        $scope.$watch("prevDays.selectedOption", function(newValue, oldValue){
+            $scope.loadCounts();
+        });
+
     }])
 
     .controller('RepoStatsCtrl', ['$scope', '$http', function ($scope, $http) {
-        $scope.prevDays = 7;
         $scope.repoStats = [];
         $scope.loadCounts = function () {
-            $scope.resource = '/stats/repoStats?prevDays=' + $scope.prevDays;
+            $scope.resource = '/stats/repoStats?prevDays=' + $scope.prevDays.selectedOption.days;
             $http.get($scope.resource).then(function (response) {
                 $scope.repoStats = response.data.stats;
 
@@ -65,12 +108,15 @@ angular.module('app', ['ngMessages'])
             $scope.loadCounts();
         };
         $scope.init();
+
+        $scope.$watch("prevDays.selectedOption", function(newValue, oldValue){
+            $scope.loadCounts();
+        });
     }])
 
     .controller('UserStatsCtrl', ['$scope', '$http', function ($scope, $http) {
-        $scope.prevDays = 7;
         $scope.loadCounts = function() {
-            $scope.resource = '/stats/userStats?prevDays=' + $scope.prevDays;
+            $scope.resource = '/stats/userStats?prevDays=' + $scope.prevDays.selectedOption.days;
             $http.get($scope.resource).then( function(response) {
                 $scope.userStats = response.data.stats;
 
@@ -88,5 +134,9 @@ angular.module('app', ['ngMessages'])
             $scope.loadCounts();
         };
         $scope.init();
+
+        $scope.$watch("prevDays.selectedOption", function(newValue, oldValue){
+            $scope.loadCounts();
+        });
     }
     ]);

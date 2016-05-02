@@ -8,29 +8,42 @@
         <script src="js/app.js"></script>
     </head>
 
-    <body ng-app="app">
+    <body ng-controller="mainCtrl" ng-app="app">
+
         <div id="left">
-            <span ng-repeat="item in views track by $index" class="circle" ng-class="{active: view == item.id}">
+
+
+            <label data-ng-repeat="mode in widgetMode track by mode.id">
+                <input
+                    name="widgetMode"
+                    type="radio"
+                    ng-value="{{mode.id}}"
+                    ng-model="$parent.widgetModeActive" />
+                    {{mode.name}}
+            </label>
+
+            <select name="prevDays" required
+                ng-options="option.name for option in prevDays.availableOptions track by option.days"
+                ng-model="prevDays.selectedOption"
+                ng-change="loadCounts(prevDays.selectedOption.days)"></select>
+
+
+            <span ng-repeat="item in views track by $index" class="circle" ng-class="{active: view == item.id}" ng-click="setView(item.id)">
                 <span style="vertical-align:-2.5em;"><b>{{ item.name }}</b></span>
             </span>
         </div>
 
         <div id="right">
+                <!-- <select name="prevDays" required
+                       ng-model="prevDays"
+                       ng-change="loadCounts()">
+
+                        <option value="1"> Last 24 Hours</option>
+                       <option value="7" selected> Last 7 Days</option>
+                </select> -->
+
             <div ng-controller="UserStatsCtrl" ng-if="view == 0">
-                <h1>Users with Most Commits</h1>
-                <form name="userForm">
-                    <label> Last # of Days:
-                        <input name="prevDays" type="number" min="1" max="30" required onFocus="this.select();"
-                               ng-model="prevDays"
-                               ng-change="loadCounts()"/>
-                        <span class="gray"><i>(enter a value between 1 and 30)</i></span>
-                    </label>
-                    <div ng-messages="userForm.prevDays.$error" class="error">
-                        <div ng-message="required">Please enter a value between 1 and 30.</div>
-                        <div ng-message="min" >The number has to be >= 1.</div>
-                        <div ng-message="max">The number has to be <= 30.</div>
-                    </div>
-                </form>
+                <h1>Users with Most Commits {{prevDays.selectedOption.days}} </h1>
 
                 <div ng-repeat="item in userStats track by $index" class="entry">
                     <div class="top">
@@ -58,19 +71,6 @@
 
             <div ng-controller="ProjectStatsCtrl" ng-if="view == 1">
                 <h1>Projects with Most Commits</h1>
-                <form name="projForm">
-                    <label> Last # of Days:
-                        <input name="prevDays" type="number" min="1" max="30" required onFocus="this.select();"
-                               ng-model="prevDays"
-                               ng-change="loadCounts()"/>
-                        <span class="gray"><i>(enter a value between 1 and 30)</i></span>
-                    </label>
-                    <div ng-messages="projForm.prevDays.$error" class="error">
-                        <div ng-message="required">Please enter a value for this field.</div>
-                        <div ng-message="min" >The number has to be >= 1.</div>
-                        <div ng-message="max">The number has to be <= 30.</div>
-                    </div>
-                </form>
 
                 <div ng-repeat="item in projectStats track by $index" class="entry">
                     <div class="top">
@@ -96,19 +96,6 @@
 
             <div ng-controller="RepoStatsCtrl" ng-if="view == 2">
                 <h1>Repos with Most Commits</h1>
-                <form name="repoForm">
-                    <label> Last # of Days:
-                        <input name="prevDays" type="number" min="1" max="30" required onFocus="this.select();"
-                               ng-model="prevDays"
-                               ng-change="loadCounts()"/>
-                        <span class="gray"><i>(enter a value between 1 and 30)</i></span>
-                    </label>
-                    <div ng-messages="repoForm.prevDays.$error" class="error">
-                        <div ng-message="required">Please enter a value between 1 and 30.</div>
-                        <div ng-message="min" >The number has to be >= 1.</div>
-                        <div ng-message="max">The number has to be <= 30.</div>
-                    </div>
-                </form>
 
                 <div ng-repeat="item in repoStats track by $index" class="entry">
                     <div class="top">
