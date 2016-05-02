@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
 
         <script src="bower_components/angular/angular.min.js"></script>
         <script src="bower_components/angular-messages/angular-messages.min.js"></script>
@@ -48,7 +49,7 @@
                 <div ng-repeat="item in userStats track by $index" class="entry">
                     <div class="top">
                         <span ng-if="$index<5">
-                            <span class="proj-pic" style="background-image:url(img/proj-{{$index}}.png)"></span>
+                            <span class="proj-pic" style="background-image:url(assets/img/proj-{{$index}}.png)"></span>
                         </span>
 
                         <h3>
