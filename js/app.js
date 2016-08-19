@@ -20,7 +20,7 @@ angular.module('app', ['ngMessages'])
 
         $scope.widgetModeActive = 1;
         $scope.widgetMode = [
-                    {id: 0, name: "Presentation"},
+                    {id: 0, name: "Auto"},
                     {id: 1, name: "Click"}
                 ];
 
