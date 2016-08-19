@@ -19,7 +19,6 @@ angular.module('app', ['ngMessages'])
             }
 
         $scope.widgetModeActive = 1;
-        var startPresentation;
         $scope.widgetMode = [
                     {id: 0, name: "Presentation"},
                     {id: 1, name: "Click"}
