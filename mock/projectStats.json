@@ -1,0 +1,82 @@
+{
+    "since": "30",
+    "totalCount": 112,
+    "stats": [
+        {
+            "_id": "SKUI",
+            "users": [
+                {
+                    "user": "Tadimeti",
+                    "count": 22
+                },
+                {
+                    "user": "Kim",
+                    "count": 15
+                },
+                {
+                    "user": "dehru",
+                    "count": 12
+                },
+                {
+                    "user": "ducho",
+                    "count": 10
+                },
+                {
+                    "user": "Kris Thompson",
+                    "count": 9
+                },
+                {
+                    "user": "brian.reynolds",
+                    "count": 7
+                },
+                {
+                    "user": "Cheng",
+                    "count": 5
+                },
+                {
+                    "user": "sjolat2",
+                    "count": 5
+                },
+                {
+                    "user": "tliu",
+                    "count": 5
+                },
+                {
+                    "user": "Jase",
+                    "count": 4
+                },
+                {
+                    "user": "parkec10",
+                    "count": 4
+                },
+                {
+                    "user": "anands6",
+                    "count": 2
+                },
+                {
+                    "user": "mosbyj",
+                    "count": 1
+                },
+                {
+                    "user": "klaird",
+                    "count": 1
+                },
+                {
+                    "user": "pylem",
+                    "count": 1
+                }
+            ],
+            "count": 103
+        },
+        {
+            "_id": "CUC",
+            "users": [
+                {
+                    "user": "dehru",
+                    "count": 9
+                }
+            ],
+            "count": 9
+        }
+    ]
+}

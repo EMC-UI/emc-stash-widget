@@ -17,9 +17,17 @@
     e. call "hello world" api from angularjs and display on screen
 
 
-// Badass Step 3 - Let's get some data
-3. npm install git+https://github.com/EMC-UI/tally
+// Badass Step 3 has 2 options
+
+// Option 1 - Use Mongo For Realz
+3a. npm install git+https://github.com/EMC-UI/tally
     a. require it in server.js
     b. look at it's api
     c. create REST endpoints that return data from tally's api
     d. call those apis in angularjs and display the data.
+
+// Option 2 - Just use mock data
+3b. Look at the mock directory
+    a. require those 2 mock files in your server.js
+    b. create REST endpoints that return that mock data.
+    c. call those REST apis in angularjs and display the mock data.
