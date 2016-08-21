@@ -31,3 +31,12 @@
     a. require those 2 mock files in your server.js
     b. create REST endpoints that return that mock data.
     c. call those REST apis in angularjs and display the mock data.
+
+3c. Start to build out a nice display of the data in html / css / angularjs
+    a. loop over the data from the REST apis with ng-repeat
+    b. display the user name
+    c. display the number of projects and list of projects the user has contributed to.
+    d. BONUS: see if you can display the percentage of all commits this user has contributed.
+
+
+
