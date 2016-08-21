@@ -16,7 +16,7 @@ angular.module('app', ['ngMessages'])
 
         $scope.setView = function(e) {
             $rootScope.view = e;
-            }
+            };
 
         $scope.widgetModeActive = 1;
         $scope.widgetMode = [

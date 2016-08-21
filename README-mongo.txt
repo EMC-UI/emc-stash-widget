@@ -1,7 +1,15 @@
-Setting Up Mongo
+
+
+
+Setting Up Mongo ( For emc-stash-widget project )
 ================
 
-Create Aliases for Mongo
+https://www.mongodb.com/download-center#community
+
+Download and Install mongodb on your system
+
+Post Installation Instructions ( Mac OSX )
+
 ---
 add this to your ~/.profile
 alias mongod=/Users/cromed/programs/mongodb-osx-x86_64-3.0.3/bin/mongod
@@ -16,9 +24,17 @@ sudo chmod -R 777 /data
 
 Install the tally db
 ---
+After you clone the emc-stash-widget, you will find the tally-db.tar file in the root of the repo.
+
+Untag the db file: 
+
 tar -xvf tally-db.tar
+
+Load the tally db into mongo
+
 mongorestore
 
+Use the mongo client to inspect the db
 
 mongo
 use tally
