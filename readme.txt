@@ -10,7 +10,7 @@
     f. change the background color of the displayed page
 
 // Badass Step 2
-2. create a server.js file.  Run it with node server.js
+2. create a server.js file.  Run it with 'node server.js'
     a. log a message
     b. add express and start a server
     c. add an api endpoint that responds with "hello world"
