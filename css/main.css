@@ -10,12 +10,6 @@ body {
   background: #e9e9e9;
   display: flex; }
 
-.error {
-  color: red;
-}
-.circle.active {
-  background: #2C95DD; }
-
 .proj-pic {
   border-radius: 1em;
   overflow: hidden;
@@ -52,14 +46,7 @@ h3 em {
   height: 3vh;
   min-height: 18px;
   display: block;
-  border-radius: 0.5em; }
 
-#left {
-  width: 5em;
-  flex-shrink: 1; }
-
-#right {
-  flex-grow: 1; }
 
 .circle {
   width: 4em;
