@@ -16,10 +16,10 @@ Backend Step 2
 ---
 2. npm install git+https://github.com/EMC-UI/tally --save
     a. run through the readme-mongo.txt and install the tally db
-    a. require the tally npm module in server.js
-    b. look at it's api
-    c. create a REST endpoint for '/stats/userStats' that return data from tally's userStats api
-    d. make sure that the front end code is getting data.
+    b. require the tally npm module in server.js
+    c. look at it's api
+    d. create a REST endpoint for '/stats/userStats' that return data from tally's userStats api
+    e. make sure that the front end code is getting data.
 
 
 
