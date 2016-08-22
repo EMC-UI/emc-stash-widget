@@ -10,7 +10,6 @@
   ],
   "dependencies": {
     "angular": "~1.5.5",
-    "angular-messages": "~1.5.5",
     "underscore": ">=1.8.3"
   },
   "devDependencies": {}
