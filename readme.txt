@@ -1,4 +1,4 @@
-EMC STASH WIDGET - BADASS TRACK
+EMC STASH WIDGET - FRONT-END TRACK
 ===============================
 
 Badass Step 1 - A basic html/css/angularjs app
