@@ -14,14 +14,16 @@
         <div id="left">
 
 
-            <label data-ng-repeat="mode in widgetMode track by mode.id">
-                <input
-                    name="widgetMode"
-                    type="radio"
-                    ng-value="{{mode.id}}"
-                    ng-model="$parent.widgetModeActive" />
+            <div data-ng-repeat="mode in widgetMode track by mode.id">
+                <label>
+                    <input
+                        name="widgetMode"
+                        type="radio"
+                        ng-value="{{mode.id}}"
+                        ng-model="$parent.widgetModeActive" />
                     {{mode.name}}
-            </label>
+                </label>
+            </div>
 
             <select name="prevDays" required
                 ng-options="option.name for option in prevDays.availableOptions track by option.days"
@@ -44,7 +46,7 @@
                 </select> -->
 
             <div ng-controller="UserStatsCtrl" ng-if="view == 0">
-                <h1>Users with Most Commits {{prevDays.selectedOption.days}} </h1>
+                <h1>Users with Most Commits</h1>
 
                 <div ng-repeat="item in userStats track by $index" class="entry">
                     <div class="top">
