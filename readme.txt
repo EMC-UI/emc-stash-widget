@@ -21,10 +21,6 @@ Backend Step 2
     d. make sure that the front end code is getting data.
 
 
-Backend Step 3
----
-3. Add a rest endpoint for /stats/projectStats
-    a. make sure that the client code is displaying data.
 
 
 
