@@ -25,7 +25,7 @@ Step 2 - start your web server
     g. open up server.js and to take a closer look at the server side script that is your web server ( it won't bite you )
 
 
-// Badass Step 3 - get that data into your html
+Step 3 - get that data into your html
 ---
 3a. call the rest apis you checked out in step 2 from angularjs.
     a. use angular's $http service to call the '/hello' REST api
