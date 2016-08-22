@@ -91,3 +91,8 @@ db.commits.findOne()
 	"repo" : "skyline-ui-activities"
 }
 
+
+//A hack to get newer data. ( replace the authorTimestamp below with a newer one )
+mongo
+use tally
+db.commits.update({},{$set:{authorTimestamp:1471574668660}},{upsert:false,multi:true})

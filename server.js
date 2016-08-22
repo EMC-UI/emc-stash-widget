@@ -2,31 +2,26 @@ var express = require('express');
 var tally = require('tally');
 var app = express();
 var url = require('url');
-var userStatsMock = require('./mock/userStats.json');
-var projectStatsMock = require('./mock/projectStats.json');
 
 app.get('/stats/userStats', function (req, res) {
-    // var urlParts = url.parse(req.url, true);
-    // tally.userStats(urlParts.query.prevDays).then(function(result) {
-    //     res.json(result);
-    // });
-    res.json(userStatsMock);
+    var urlParts = url.parse(req.url, true);
+    tally.userStats(urlParts.query.prevDays).then(function(result) {
+        res.json(result);
+    });
 });
 
 app.get('/stats/projectStats', function (req, res) {
-    // var urlParts = url.parse(req.url, true);
-    // tally.projectStats(urlParts.query.prevDays).then(function(result) {
-    //     res.json(result);
-    // });
-    res.json(projectStatsMock);
+    var urlParts = url.parse(req.url, true);
+    tally.projectStats(urlParts.query.prevDays).then(function(result) {
+        res.json(result);
+    });
 });
 
 app.get('/stats/repoStats', function (req, res) {
-    //var urlParts = url.parse(req.url, true);
-    //tally.repoStats(urlParts.query.prevDays).then(function(result) {
-    //    res.json(result);
-    //});
-    res.json({});
+    var urlParts = url.parse(req.url, true);
+    tally.repoStats(urlParts.query.prevDays).then(function(result) {
+       res.json(result);
+    });
 });
 
 app.get('/create', function(req, res) {

@@ -4,3 +4,4 @@ node_modules/
 *.scssc
 js/min/
 dump/
+npm-debug.log*
