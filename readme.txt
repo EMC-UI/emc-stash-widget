@@ -1,4 +1,16 @@
-// Badass Step 1 - A basic html/css/angularjs app
+            $$\                         $$\                         $$\                $$\
+            $$ |                        $$ |                        $$ |               $$ |
+ $$$$$$$\ $$$$$$\    $$$$$$\   $$$$$$$\ $$$$$$$\         $$$$$$$\ $$$$$$\    $$$$$$\ $$$$$$\    $$$$$$$\
+$$  _____|\_$$  _|   \____$$\ $$  _____|$$  __$$\       $$  _____|\_$$  _|   \____$$\\_$$  _|  $$  _____|
+\$$$$$$\    $$ |     $$$$$$$ |\$$$$$$\  $$ |  $$ |      \$$$$$$\    $$ |     $$$$$$$ | $$ |    \$$$$$$\
+ \____$$\   $$ |$$\ $$  __$$ | \____$$\ $$ |  $$ |       \____$$\   $$ |$$\ $$  __$$ | $$ |$$\  \____$$\
+$$$$$$$  |  \$$$$  |\$$$$$$$ |$$$$$$$  |$$ |  $$ |      $$$$$$$  |  \$$$$  |\$$$$$$$ | \$$$$  |$$$$$$$  |
+\_______/    \____/  \_______|\_______/ \__|  \__|      \_______/    \____/  \_______|  \____/ \_______/
+
+BADASS TRACK
+
+Badass Step 1 - A basic html/css/angularjs app
+---
 1. create an index.html file, have it display 'hello world' and run it ( double click )
 // ( test the index.html page with each step below )
     a. add angularjs into the header of the index.html file
@@ -8,7 +20,8 @@
     e. add a css/main.css file and add it to your index.html header
     f. change the background color of the displayed page
 
-// Badass Step 2 - Let's create a server
+Badass Step 2 - Let's create a server
+---
 2. create a server.js file.  Run it with node server.js
     a. log a message
     b. add express and start a server
