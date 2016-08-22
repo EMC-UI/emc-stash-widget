@@ -12,14 +12,6 @@ Backend Step 1 - Let's create a server
     e. call "hello world" api in express, and call it from angularjs and display on screen
 
 
-Backend Step 2
----
-2. npm install git+https://github.com/EMC-UI/tally --save
-    a. require it in server.js
-    b. look at it's api
-    c. create a REST endpoint for '/stats/userStats' that return data from tally's userStats api
-    d. make sure that the front end code is getting data.
-
 
 
 
