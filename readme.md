@@ -1,8 +1,8 @@
 # EMC STASH WIDGET
 
-# [ Fork this repo before you begin to work on it! ]
+# [ REMINDER: Fork this repo before you begin to work on it! ]
 
-![Alt text](/assets/img/screenshot.png)
+![Alt text](/assets/img/screenshot.png "Screen shot of the user git stats widget" )
 
 # TRACKS
 
