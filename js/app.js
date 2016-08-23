@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['ngMessages'])
+angular.module('app', [])
     .run(['$rootScope', function($rootScope) {
         $rootScope.thing = 'Hello World';
     }]);
