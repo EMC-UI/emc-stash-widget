@@ -1,14 +1,14 @@
 # EMC STASH WIDGET
 
-# [ REMINDER: Fork this repo before you begin to work on it! ]
+**[ REMINDER: Fork this repo before you begin to work on it! ]**
 
 ![Alt text](/assets/img/screenshot.png "Screen shot of the user git stats widget" )
 
 # TRACKS
 
-## Badass - Do the front end AND the backend!
-## Front-end only
-## Back-end only
+## [Badass](https://github.com/EMC-UI/emc-stash-widget/tree/badass-start) - Do the front end AND the backend!
+## [Frontend Web Developer](https://github.com/EMC-UI/emc-stash-widget/tree/front-end-only-start) - Front-end only steps ( server-side is already done )
+## [Backend Plumber](https://github.com/EMC-UI/emc-stash-widget/tree/back-end-only-start) - Back-end only steps ( client-side is already done )
 
 # Badass Steps Example
 ## 1. BASIC HTML / CSS / JAVASCRIPT
