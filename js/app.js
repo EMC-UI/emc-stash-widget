@@ -6,7 +6,7 @@ angular.module('app', [])
     }])
     .controller('UserStatsCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.loadCounts = function() {
-            $scope.resource = '/stats/userStats?prevDays=' + $scope.prevDays.selectedOption.days;
+            $scope.resource = '/stats/userStats?prevDays=7';
             $http.get($scope.resource).then( function(response) {
                 $scope.userStats = response.data.stats;
 
