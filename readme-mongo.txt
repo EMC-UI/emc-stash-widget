@@ -40,7 +40,7 @@ Use the mongo client to inspect the db
 
 mongo
 use tally
-db.commits.update({},{$set{authorTimestamp:1471574668660}},{upsert:false,multi:true})
+db.commits.update({},{$set{authorTimestamp:1472249951458}},{upsert:false,multi:true})
 
 A single commit record
 db.commits.findOne()
