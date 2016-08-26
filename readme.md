@@ -1,6 +1,6 @@
 # EMC STASH WIDGET
 
-**[ REMINDER: Fork this repo before you begin to work on it! ]**
+**[ REMINDER: Clone this repo and create a git branch with your team name as the branch name! ]**
 
 # Screenshot of the Finished Product
 ![Alt text](/assets/img/screenshot.png "Screen shot of the user git stats widget" )
