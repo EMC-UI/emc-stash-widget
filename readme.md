@@ -32,3 +32,4 @@ _The client-side code is already done for you_
 1. [Step 2](https://github.com/EMC-UI/emc-stash-widget/tree/back-end-only-step-2)
 1. [Finish](https://github.com/EMC-UI/emc-stash-widget/tree/back-end-only-finish)
 
+cp was here
